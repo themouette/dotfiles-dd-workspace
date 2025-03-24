@@ -1,0 +1,61 @@
+[core]
+	editor = vim
+	pager = less -+F -+X
+	hooksPath = /usr/local/dd/global_hooks
+	excludesfile = ~/.gitignore
+
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[tag]
+        sort = version:refname
+[init]
+        defaultBranch = main
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[push]
+        default = simple
+        autoSetupRemote = true
+[help]
+        autocorrect = prompt
+[commit]
+        verbose = true
+[rerere]
+        enabled = true
+        autoupdate = true
+[rebase]
+        autoSquash = true
+        autoStash = true
+        updateRefs = true
+[merge]
+	tool = vimdiff
+	conflictstyle = zdiff3
+
+[color "diff"]
+  meta = yellow
+  frag = magenta
+  old = red
+  new = green
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[alias]
+  logg = log --graph --decorate
+  lol = log --decorate --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all  --date=short
+  chekcout = checkout
+  cs = branch-fzf-local
+  csr = branch-fzf-remote
+[user]
+	name = Julien Muetton
+	email = julien.muetton@datadoghq.com
+	signingkey = ~/.ssh/authorized_keys
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
