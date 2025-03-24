@@ -32,8 +32,8 @@ function install_vim {
         VIMVERSION="$(vim --version | head -1 | sed -e 's|^[^0-9]*||' -e 's| .*||')"
     fi
     if [[ -z "$VIMVERSION" || $VIMVERSION < 9.0 ]]; then
-        if [[ -z "$VIMVERSION" ]]; then
-            sudo apt-get remove vim
+        if [[ ! -z "$VIMVERSION" ]]; then
+            sudo apt-get remove -y vim
         fi
 
         # Clone vim repository
