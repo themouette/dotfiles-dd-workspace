@@ -15,6 +15,10 @@ function link_file_or_dir {
     if [[ -e $dest && ! -L $dest ]]; then
         mv $dest $dest.bak
     fi
+    # If file is a symlink but does not point to the correct location, remove it
+    if [[ -L $dest && $(readlink $dest) != $src ]]; then
+        rm $dest
+    fi
     ln -s $src $dest
 }
 
@@ -82,7 +86,7 @@ function main {
     install_git
     install_tmux
     install_vim
-    # install_zsh
+    install_zsh
 }
 
 main "$@"
