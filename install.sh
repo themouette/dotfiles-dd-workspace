@@ -82,7 +82,7 @@ function main {
     install_git
     install_tmux
     install_vim
-    install_zsh
+    # install_zsh
 }
 
 main "$@"
