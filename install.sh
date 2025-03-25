@@ -8,21 +8,31 @@ set -o nounset
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+function link_file_or_dir {
+    local src=$1
+    local dest=$2
+    # if destination file or directory exists and is not a symlink, backup it
+    if [[ -e $dest && ! -L $dest ]]; then
+        mv $dest $dest.bak
+    fi
+    ln -s $src $dest
+}
+
 function install_git {
-    ln -Sf $DIR/git/.gitconfig ~/.gitconfig
+    link_file_or_dir $DIR/git/.gitconfig ~/.gitconfig
 }
 
 function install_tmux {
     if [[ ! -x $(which tmux) ]]; then
         sudo apt-get install tmux
     fi
-    ln -Sf $DIR/tmux/.tmux.conf ~/.tmux.conf
+    link_file_or_dir $DIR/tmux/.tmux.conf ~/.tmux.conf
 }
 
 function install_vim {
     # Link vim config
-    ln -Sf $DIR/vim/.vimrc ~/.vimrc
-    ln -s $DIR/vim/.vim ~/.vim
+    link_file_or_dir $DIR/vim/.vimrc ~/.vimrc
+    link_file_or_dir $DIR/vim/.vim ~/.vim
 
     # Install latest vim
     VIMDIR=$HOME/vim
@@ -49,11 +59,11 @@ function install_vim {
 }
 
 function install_zsh {
-    ln -Sf $DIR/zsh/.zshrc ~/.zshrc
+    link_file_or_dir $DIR/zsh/.zshrc ~/.zshrc
 }
 
 function install_neovim {
-    ln -Sf $DIR/nvim ~/.config/nvim
+    link_file_or_dir $DIR/nvim ~/.config/nvim
     if [[ ! -x $(which nvim) ]]; then
         sudo apt-get install neovim
     fi
