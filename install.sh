@@ -19,7 +19,9 @@ function link_file_or_dir {
     if [[ -L $dest && $(readlink $dest) != $src ]]; then
         rm $dest
     fi
-    ln -s $src $dest
+    if [[ ! -e $dest ]]; then
+	ln -s $src $dest
+    fi
 }
 
 function install_git {
