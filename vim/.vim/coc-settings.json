@@ -1,0 +1,4 @@
+{
+  "eslint.autoFixOnSave": true,
+  "json.format.enable": true
+}

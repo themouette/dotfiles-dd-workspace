@@ -1,7 +1,6 @@
 [core]
 	editor = vim
 	pager = less -+F -+X
-	hooksPath = /usr/local/dd/global_hooks
 	excludesfile = ~/.gitignore
 
 [column]
@@ -59,3 +58,50 @@
 	format = ssh
 [commit]
 	gpgsign = true
+[safe]
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
+	directory = *
