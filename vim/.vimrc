@@ -61,8 +61,9 @@ set cursorline                      " Highlight current line.
 let &t_Co=256
 let g:solarized_termcolors=256
 set background=dark
-hi Normal ctermfg=white ctermbg=black
+hi Normal ctermfg=245 ctermbg=235
 colorscheme solarized
+hi Normal ctermbg=black " force bg to match `background`
 
 " pull word under cursor into LHS of a substitute (for quick search and replace)
 nmap <leader>zs :%s/<C-r>=expand("<cword>")<CR>/
@@ -80,3 +81,7 @@ function! <SID>MkdirsIfNotExists(directory)
         call system('mkdir -p '.shellescape(a:directory))
     endif
 endfunction
+
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
