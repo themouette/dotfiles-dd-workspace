@@ -66,6 +66,7 @@ function install_vim {
 
 function install_zsh {
     link_file_or_dir $DIR/zsh/.zshrc ~/.zshrc
+    link_file_or_dir $DIR/zsh/zshrc.d ~/.zshrc.d
 }
 
 function install_neovim {
